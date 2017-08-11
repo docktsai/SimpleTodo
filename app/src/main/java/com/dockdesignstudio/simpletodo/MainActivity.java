@@ -1,5 +1,6 @@
 package com.dockdesignstudio.simpletodo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -43,6 +44,19 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+        lvItems.setOnItemClickListener(
+                new AdapterView.OnItemClickListener(){
+                @Override
+                    public void onItemClick(AdapterView<?> adapter, View item, int pos, long id){
+                        launchEditItemView();
+                    }
+                }
+        );
+    }
+
+    public void launchEditItemView () {
+        Intent i = new Intent(MainActivity.this, EditItemActivity.class);
+        startActivity(i);
     }
 
     public void onAddItem(View v) {
