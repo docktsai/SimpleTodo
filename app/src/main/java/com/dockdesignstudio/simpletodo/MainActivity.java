@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> items;
     ArrayAdapter<String> itemsAdapter;
     ListView lvItems;
+    private final int REQUEST_CODE = 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         lvItems  = (ListView) findViewById(R.id.lvItems);
         readItems();
-        itemsAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, items);
+        itemsAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, items);
         lvItems.setAdapter(itemsAdapter);
         setupListViewListener();
 
@@ -48,15 +49,31 @@ public class MainActivity extends AppCompatActivity {
                 new AdapterView.OnItemClickListener(){
                 @Override
                     public void onItemClick(AdapterView<?> adapter, View item, int pos, long id){
-                        launchEditItemView();
+
+                    launchEditItemView(pos);
                     }
                 }
         );
     }
 
-    public void launchEditItemView () {
+    public void launchEditItemView (Integer pos) {
         Intent i = new Intent(MainActivity.this, EditItemActivity.class);
-        startActivity(i);
+        i.putExtra("editItemPos",pos);
+        i.putExtra("editItemText", items.get(pos));
+        startActivityForResult(i, REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // REQUEST_CODE is defined above
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+            // Extract name value from result extras
+            String editItemText = data.getExtras().getString("editItemText");
+            int editItemPos = data.getExtras().getInt("editItemPos", 0);
+            items.set(editItemPos,editItemText);
+            itemsAdapter.notifyDataSetChanged();
+            writeItems();
+        }
     }
 
     public void onAddItem(View v) {
@@ -71,9 +88,9 @@ public class MainActivity extends AppCompatActivity {
         File filesDir = getFilesDir();
         File todoFile = new File(filesDir,"todo.txt");
         try {
-            items = new ArrayList<String>(FileUtils.readLines(todoFile));
+            items = new ArrayList<>(FileUtils.readLines(todoFile));
         } catch (IOException e) {
-            items = new ArrayList<String>();
+            items = new ArrayList<>();
         }
     }
 
