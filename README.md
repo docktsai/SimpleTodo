@@ -30,8 +30,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-
-<img src='https://www.dropbox.com/s/yzx9sapf8tg4nes/ToDo_2017_08_15_20_50_30.mp4' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+[Link to Video Walkthrough](https://www.dropbox.com/s/yzx9sapf8tg4nes/ToDo_2017_08_15_20_50_30.mp4)
 
 
 ## Project Analysis
