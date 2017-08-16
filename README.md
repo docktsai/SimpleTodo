@@ -4,14 +4,14 @@ SimpleTodo is an android app that allows building a todo list and basic todo ite
 
 Submitted by: Dock Tsai
 
-Time spent: 3 hours spent in total
+Time spent: 5 hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
 * [x] User can **successfully add and remove items** from the todo list
-* [ ] User can **tap a todo item in the list and bring up an edit screen for the todo item** and then have any changes to the text reflected in the todo list.
+* [x] User can **tap a todo item in the list and bring up an edit screen for the todo item** and then have any changes to the text reflected in the todo list.
 * [x] User can **persist todo items** and retrieve them properly on app restart
 
 The following **optional** features are implemented:
@@ -31,9 +31,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://www.dropbox.com/s/yzx9sapf8tg4nes/ToDo_2017_08_15_20_50_30.mp4?dl=0' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Project Analysis
 
@@ -41,15 +40,18 @@ As part of your pre-work submission, please reflect on the app and answer the fo
 
 **Question 1:** "What are your reactions to the Android app development platform so far? Compare and contrast Android's approach to layouts and user interfaces in past platforms you've used."
 
-**Answer:** [Enter your answer here in a paragraph or two].
+**Answer:** This is my first time to develop an "GUI" app. I used to deal with web app and they are more one direction. And totally dfferent with the batch script I familiar
 
 **Question 2:** "Take a moment to reflect on the `ArrayAdapter` used in your pre-work. How would you describe an adapter in this context and what is its function in Android? Why do you think the adapter is important? Explain the purpose of the `convertView` in the `getView` method of the `ArrayAdapter`."
 
-**Answer:** [Enter your answer here in a paragraph or two].
+**Answer:** ArrayAdapter as interface between view object to data object. We can focus on data content instead of worry on how to fit to view.
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+- As my old liinux laptop is too slow to run Android Studio. Have to leverage Google cloud VM for Android app development. The problem is you are not able to run ADV on top of VM. The solution is to build and generate APL file. Copy back to local Linux then push over to Android phone to test.
+- Thr adapter concept seems a little challenge to me. Also, to setup listener interface seems need to study more sample code and tutorial to try to master it.
+- As test on physical phone, need to find soltion to generate walkthrough gif. Use AZ screen recorder app on phone to record video.
 
 ## License
 
